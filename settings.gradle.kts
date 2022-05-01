@@ -11,3 +11,5 @@ pluginManagement {
     }
 }
 rootProject.name = "matthew-bank"
+
+include("user-service")

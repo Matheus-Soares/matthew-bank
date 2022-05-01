@@ -12,13 +12,13 @@ import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
-@Path("/users")
-class UserResource {
+@Path("/bankusers")
+class BankUserResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     fun getAll(): Response {
-        val bankUsers = BankUser.listAll().sortedBy { it.firstName }
+        val bankUsers = BankUser.listAll()
         return Response.ok(bankUsers).build()
     }
 
@@ -40,7 +40,7 @@ class UserResource {
     fun createUser(bankUser: BankUser): Response {
         bankUser.persist()
         return if (bankUser.isPersistent())
-            Response.created(URI.create("/users/${bankUser.id}")).build()
+            Response.created(URI.create("/bankusers/${bankUser.id}")).build()
         else
             Response.status(Response.Status.BAD_REQUEST).build()
     }
