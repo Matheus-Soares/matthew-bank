@@ -1,0 +1,19 @@
+version: "3"
+services:
+  database:
+    image: "postgres:13.4"
+    container_name: "bank-database"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./db-init.sql:/docker-entrypoint-initdb.d/init.sql
+  monitoring:
+    image: "prom/prometheus:v2.35.0"
+    container_name: "prometheus-monitoring"
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
