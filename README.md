@@ -48,6 +48,9 @@ $ ./gradlew transaction-service:quarkusDev
 ```
 
 > **_NOTE:_** The Quarkus Dev UI is available in dev mode at `http://localhost:{port}/q/dev/`
+> 
+> 
+> **_NOTE 2:_** The Swagger UI and OpenAPI Documentation is available in dev mode at `http://localhost:{port}/q/swagger-ui/`
 
 ## Ports
 
