@@ -21,6 +21,14 @@ A simple architecture of this project is shown below:
 
 ![Simple Architecture](./architecture.png)
 
+## TODOs
+
+- [ ] Change the transaction-service to use RabbitMQ instead of HTTP
+- [ ] Add Grafana to use with Prometheus
+- [ ] Create a simple interface
+- [ ] Improve the database use
+- [ ] Add Unit Tests and Integration Tests
+
 
 ## Starting the infrastructure
 
@@ -108,14 +116,6 @@ $ cd transaction-service
 $ docker build -f src/main/docker/Dockerfile.jvm -t quarkus/transaction-service-jvm .
 $ docker run -i --rm --net=host -p 8080:8080 quarkus/transaction-service-jvm
 ```
-
-## TODOs
-
-- [ ] Change the transaction-service to use RabbitMQ instead of HTTP
-- [ ] Add Grafana to use with Prometheus
-- [ ] Create a simple interface
-- [ ] Improve the database use
-- [ ] Add Unit Tests and Integration Tests
 
 ## Related Guides
 
