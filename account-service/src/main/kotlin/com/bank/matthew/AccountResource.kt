@@ -4,6 +4,7 @@ import com.bank.matthew.client.Transaction
 import com.bank.matthew.client.TransactionProxy
 import com.bank.matthew.operations.Transfer
 import org.eclipse.microprofile.rest.client.inject.RestClient
+import java.net.URI
 import javax.inject.Inject
 import javax.transaction.Transactional
 import javax.ws.rs.*
@@ -130,4 +131,17 @@ class AccountResource {
         else
             Response.status(Response.Status.NOT_FOUND).build()
     }
+
+    @POST
+    @Transactional
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    fun createAccount(account: Account): Response {
+        account.persist()
+        return if (account.isPersistent())
+            Response.created(URI.create("/accounts/${account.id}")).build()
+        else
+            Response.status(Response.Status.BAD_REQUEST).build()
+    }
+
 }

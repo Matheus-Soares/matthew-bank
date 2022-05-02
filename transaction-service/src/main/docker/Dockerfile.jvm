@@ -3,22 +3,22 @@
 #
 # Before building the container image run:
 #
-# ./gradlew build
+# ./gradlew transaction-service:build -x test
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/matthew-bank-jvm .
+# docker build -f src/main/docker/Dockerfile.jvm -t quarkus/transaction-service-jvm .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/matthew-bank-jvm
+# docker run -i --rm --net=host -p 8080:8080 quarkus/transaction-service-jvm
 #
 # If you want to include the debug port into your docker image
 # you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5005
 #
 # Then run the container using :
 #
-# docker run -i --rm -p 8080:8080 quarkus/matthew-bank-jvm
+# docker run -i --rm -p 8080:8080 quarkus/transaction-service-jvm
 #
 # This image uses the `run-java.sh` script to run the application.
 # This scripts computes the command line to execute your Java application, and
@@ -87,6 +87,7 @@ COPY --chown=185 build/quarkus-app/app/ /deployments/app/
 COPY --chown=185 build/quarkus-app/quarkus/ /deployments/quarkus/
 
 EXPOSE 8080
+EXPOSE 5432
 USER 185
 ENV AB_JOLOKIA_OFF=""
 ENV JAVA_OPTS="-Dquarkus.http.host=0.0.0.0 -Djava.util.logging.manager=org.jboss.logmanager.LogManager"
