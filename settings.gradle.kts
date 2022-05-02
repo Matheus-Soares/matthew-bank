@@ -12,4 +12,4 @@ pluginManagement {
 }
 rootProject.name = "matthew-bank"
 
-include("user-service", "transaction-service")
+include("user-service", "transaction-service", "account-service")

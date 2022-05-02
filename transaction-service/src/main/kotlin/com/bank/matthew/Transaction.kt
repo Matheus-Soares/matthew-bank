@@ -20,6 +20,8 @@ class Transaction : PanacheEntity {
 
     var amount = 0L
 
+    var currentBalance = 0L
+
     lateinit var timestamp: Date
 
     constructor()

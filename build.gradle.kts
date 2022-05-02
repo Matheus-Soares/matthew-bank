@@ -29,6 +29,7 @@ allprojects {
         implementation("io.quarkus:quarkus-hibernate-orm-panache-kotlin")
         implementation("io.quarkus:quarkus-jdbc-postgresql")
         implementation("io.quarkus:quarkus-smallrye-openapi")
+        implementation("io.quarkus:quarkus-rest-client-reactive-jackson")
 //        implementation("io.quarkus:quarkus-smallrye-reactive-messaging-rabbitmq")
 //        implementation("io.quarkus:quarkus-smallrye-reactive-messaging-amqp")
         implementation("io.quarkus:quarkus-micrometer-registry-prometheus")

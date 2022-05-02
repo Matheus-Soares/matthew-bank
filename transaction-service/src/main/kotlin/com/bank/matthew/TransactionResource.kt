@@ -61,7 +61,4 @@ class TransactionResource {
         else
             Response.status(Response.Status.BAD_REQUEST).build()
     }
-
-
-
 }
