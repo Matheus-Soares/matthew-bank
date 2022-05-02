@@ -115,6 +115,7 @@ $ docker run -i --rm --net=host -p 8080:8080 quarkus/transaction-service-jvm
 - [ ] Add Grafana to use with Prometheus
 - [ ] Create a simple interface
 - [ ] Improve the database use
+- [ ] Add Unit Tests and Integration Tests
 
 ## Related Guides
 
