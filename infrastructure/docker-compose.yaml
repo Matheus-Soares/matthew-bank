@@ -10,9 +10,19 @@ services:
       POSTGRES_PASSWORD: password
     volumes:
       - ./db-init.sql:/docker-entrypoint-initdb.d/init.sql
-  monitoring:
+#  rabbitmq:
+#    image: "rabbitmq:3.9.16-management"
+#    container_name: "bank-rabbitmq"
+#    ports:
+#      - "5672:5672"
+#      - "15672:15672"
+#    environment:
+#      RABBITMQ_DEFAULT_USER: rabbitmq
+#      RABBITMQ_DEFAULT_PASS: password
+  prometheus:
     image: "prom/prometheus:v2.35.0"
-    container_name: "prometheus-monitoring"
+    container_name: "bank-prometheus"
+    network_mode: 'host'
     ports:
       - "9090:9090"
     volumes:
